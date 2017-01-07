@@ -4,11 +4,7 @@ include("class/class.db.php");
 include("class/function.php");
 $db = new db();
 $q ="
-	SELECT tb_sambungan.*, tb_kecamatan.*, tb_desa.nama_desa
-	FROM tb_sambungan
-	LEFT JOIN tb_kecamatan ON tb_sambungan.id_kecamatan = tb_kecamatan.id_kecamatan
-	LEFT JOIN tb_desa ON tb_sambungan.id_desa = tb_sambungan.id_desa
-	WHERE tb_sambungan.id_sambungan = '".$_GET['id']."'
+	select * from tb_admin where username='$username' and password='$password'
 ";
 
 

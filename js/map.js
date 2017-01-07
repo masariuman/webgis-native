@@ -19,7 +19,7 @@ var LayerRumahPolyline;
 (function() {
   window.onload = function() {
     var mapDiv = document.getElementById('map');
-    var latlng = new google.maps.LatLng(-0.15814501846297607,109.4182775878906);
+    var latlng = new google.maps.LatLng(-0.059789, 109.345799);
     var options = {
 		center: latlng,
 		zoom: 14,
