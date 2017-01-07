@@ -22,11 +22,11 @@
 </div>
 <ul id="sitemap">
 	
-	<li><input type="checkbox" id="chkLayerRuasJalan" checked> <label>Layer Ruas Jalan</label></li>
+<!-- 	<li><input type="checkbox" id="chkLayerRuasJalan" checked> <label>Layer Ruas Jalan</label></li>
 	<li><input type="checkbox" id="chkLayerJalurPipa" checked> <label>Layer Jalur Pipa</label></li>
-	<li><input type="checkbox" id="chkLayerRumahPolyline" checked> <label>Layer Bangunan</label></li>
+	<li><input type="checkbox" id="chkLayerRumahPolyline" checked> <label>Layer Bangunan</label></li> -->
 	
-	<li><input type="checkbox" id="chkTitikSambungan"> <label>Titik Sambungan</label>
+	<li><input type="checkbox" id="chkTitikSambungan"> <label>Kategori Masjid</label>
 	<?php
 		$titiks = $db->run("SELECT kelompok FROM tb_sambungan GROUP BY kelompok ORDER BY kelompok");
 		$jumlah_titiks = count($titiks);

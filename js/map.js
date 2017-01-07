@@ -45,7 +45,8 @@ var LayerRumahPolyline;
 
 function load_layer_pipa(peta){
 	LayerJalurPipa = new google.maps.KmlLayer({
-		url: 'http://theproject.id/kml/kuburaya/jalur-pipa.kml',
+		//menghilangkan layer pipa << di komen aja urlnya
+		// url: 'http://theproject.id/kml/kuburaya/jalur-pipa.kml',
 		preserveViewport: true,
 		//suppressInfoWindows: true,
 		zIndex : 1,
@@ -54,7 +55,8 @@ function load_layer_pipa(peta){
 }
 function load_layer_jalan(peta){
 	LayerRuasJalan = new google.maps.KmlLayer({
-		url: 'http://theproject.id/kml/kuburaya/ruas-jalan.kml',
+		//menghilangkan layer jalan << di komen aja urlnya
+		// url: 'http://theproject.id/kml/kuburaya/ruas-jalan.kml',
 		preserveViewport: true,
 		//suppressInfoWindows: true,
 		zIndex : 2,
@@ -63,7 +65,8 @@ function load_layer_jalan(peta){
 }
 function load_layer_rumah(peta){
 	LayerRumahPolyline = new google.maps.KmlLayer({
-		url: 'http://theproject.id/kml/kuburaya/rumah-polyline.kml',
+		//menghilangkan layer rumah << di komen aja urlnya
+		// url: 'http://theproject.id/kml/kuburaya/rumah-polyline.kml',
 		preserveViewport: true,
 		suppressInfoWindows: true,
 		zIndex : 3,
@@ -394,32 +397,32 @@ function isChecked(checkboxId) {
 
 $(document).ready(function(){
 	
-	$('#chkLayerJalurPipa').click(function(){
-		if (document.getElementById($(this).attr("id")).checked){
-			LayerJalurPipa.setMap(map);
-		}
-		else{
-			LayerJalurPipa.setMap(null);
-		}		
-    });
+	// $('#chkLayerJalurPipa').click(function(){
+	// 	if (document.getElementById($(this).attr("id")).checked){
+	// 		LayerJalurPipa.setMap(map);
+	// 	}
+	// 	else{
+	// 		LayerJalurPipa.setMap(null);
+	// 	}		
+ //    });
 	
-	$('#chkLayerRuasJalan').click(function(){
-		if (document.getElementById($(this).attr("id")).checked){
-			LayerRuasJalan.setMap(map);
-		}
-		else{
-			LayerRuasJalan.setMap(null);
-		}		
-    });
+	// $('#chkLayerRuasJalan').click(function(){
+	// 	if (document.getElementById($(this).attr("id")).checked){
+	// 		LayerRuasJalan.setMap(map);
+	// 	}
+	// 	else{
+	// 		LayerRuasJalan.setMap(null);
+	// 	}		
+ //    });
 	
-	$('#chkLayerRumahPolyline').click(function(){
-		if (document.getElementById($(this).attr("id")).checked){
-			LayerRumahPolyline.setMap(map);
-		}
-		else{
-			LayerRumahPolyline.setMap(null);
-		}		
-    });
+	// $('#chkLayerRumahPolyline').click(function(){
+	// 	if (document.getElementById($(this).attr("id")).checked){
+	// 		LayerRumahPolyline.setMap(map);
+	// 	}
+	// 	else{
+	// 		LayerRumahPolyline.setMap(null);
+	// 	}		
+ //    });
 	
 	
 	
