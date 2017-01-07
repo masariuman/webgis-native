@@ -107,12 +107,6 @@ $total = count($query);
                         <p>Notifications</p>
                     </a>
                 </li>
-                <li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
             </ul>
     	</div>
     </div>
@@ -164,6 +158,34 @@ $total = count($query);
                                         <th>Aksi</th>
                                     </thead>
                                     <tbody>
+
+                                    <!-- Button trigger modal -->
+<button type="button" style="margin-left :15px; color: white; background-color: blue;" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  DATA BARU
+</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        nama
+        as
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
                                     <!-- definisikan x = 1 -->
                                     <?php $x=1; ?> 
                                     <?php foreach($query as $r){ ?>
