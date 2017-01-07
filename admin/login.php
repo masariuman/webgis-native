@@ -27,7 +27,6 @@
 				<h4 style="text-align:center">TEMPLATE SIG-LANJUTAN-2016</h4>
 				<p style="text-align:center">HALAMAN LOGIN</p>
 		<!--h2 class="heading">
-			Halaman Login   
 		</h2-->
 					<div class="widget-header">
 						<i class="icon-user"></i>
