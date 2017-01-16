@@ -144,6 +144,7 @@ $total = count($query);
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
+                            <p style="padding: 10px;color: white;background-color: green;text-align: center;">DATA BERHASIL DISIMPAN</p><br>
                                 <h4 class="title">Data Masjid</h4>
                                 <p class="category">Data-data dari masjid maupun surau</p>
                             </div>
@@ -191,7 +192,7 @@ $total = count($query);
                                     <?php $x=1; ?>
                                     <?php foreach($query as $r){ 
 
-                                        $ida = $r['id_sambungan'];
+
 
                                         ?>
                                         <tr>
@@ -200,10 +201,10 @@ $total = count($query);
                                         	<td><?php echo $r['nama_pelanggan']; ?></td>
                                         	<td><?php echo $r['alamat']; ?></td>
                                         	<td style="text-align:center;"><?php echo $r['kelompok']; ?></td>
-                                            <td style="text-align:center;"><?php echo "<a href='table_edit.php?&edit&id=$ida'>"; ?><button type="button" style="margin-left :15px; color: white; background-color: blue;" class="btn btn-primary pe-7s-pen" data-toggle="modal" data-target="#myModal">
+                                            <td style="text-align:center;"><button type="button" style="margin-left :15px; color: white; background-color: blue;" class="btn btn-primary pe-7s-pen" data-toggle="modal" data-target="#myModal">
 
-                                            </button></a>
-                                            <button type="button" style="margin-left :15px; color: white; background-color: red;" class="btn btn-primary pe-7s-trash" data-toggle="modal" data-tarpget="#myModal">
+                                            </button>
+                                            <button type="button" style="margin-left :15px; color: white; background-color: red;" class="btn btn-primary pe-7s-trash" data-toggle="modal" data-target="#myModal">
 
                                             </button>
 </td>

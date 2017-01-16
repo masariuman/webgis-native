@@ -1,19 +1,32 @@
 <?php
 
-include("../../class/class.db.php");
-include("../../class/function.php");
-$db = new db();
+require("koneksi.php");
 
+if(isset($_GET['edit'])){
+    $id  = $_GET['id'];
+    $query8="SELECT * FROM tb_sambungan WHERE id_sambungan = '$id'";
+    // $hasil8 = $db->run($query8);
+    // $sqle = mysqli_fetch_array($hasil8);
+    // $usernamed = $sqle[0]; 
+    // $passwordd = $sqle[1]; 
+    // $namad  = $sqle[2];
+    // $alamatd = $sqle[3];
+    // $jenis_kelamind = $sqle[4];
+    // $nomor_hpd = $sqle[5];
+    // $emaild = $sqle[6];
+    $hasil8 = mysqli_query($conn, $query8) or die("Error");
+    $sqle = mysqli_fetch_array($hasil8);
+    $no_pelanggan   = $sqle[1];
+    $titik_gps      = $sqle[2];
+    $nama_pelanggan = $sqle[3];
+    $longitude      = $sqle[12];
+    $latitude       = $sqle[11];
+    $kelompok       = $sqle[9];
+    $alamat         = $sqle[4];
+    $gambar         = $sqle[10];
+  }
 
-$q="
-    SELECT tb_sambungan.*, tb_desa.nama_desa
-    FROM tb_sambungan
-    LEFT JOIN tb_desa ON tb_sambungan.id_desa = tb_desa.id_desa
-    WHERE tb_sambungan.id_sambungan!=''
-";
-
-$query = $db->run($q);
-$total = count($query);
+// echo $gambar;
 
 ?>
 
@@ -121,7 +134,7 @@ $total = count($query);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">List Masjid</a>
+                    <a class="navbar-brand" href="#">Data Baru</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -144,74 +157,75 @@ $total = count($query);
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Masjid</h4>
-                                <p class="category">Data-data dari masjid maupun surau</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th style="text-align:center;">No</th>
-                                    	<th style="text-align:center;">No Pelanggan</th>
-                                    	<th style="text-align:center;">Nama Bangunan</th>
-                                    	<th style="text-align:center;">Alamat</th>
-                                    	<th style="text-align:center;">Kategori</th>
-                                        <th style="text-align:center;">Aksi</th>
-                                    </thead>
-                                    <tbody>
+                                <h4 class="title">Data Masjid Baru</h4>
+                                <p class="category">Silahkan Masukkan data-data masjid baru.</p>
 
-                                    <!-- Button trigger modal -->
-                                    <a href="databaru.php"> <button type="button" style="margin-left :15px; color: white; background-color: green;" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                      DATA BARU
-                                    </button>
-</a>
-<!-- Modal -->
-<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        nama
-        as
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-                                    <!-- definisikan x = 1 -->
-                                    <?php $x=1; ?>
-                                    <?php foreach($query as $r){ 
-
-                                        $ida = $r['id_sambungan'];
-
-                                        ?>
-                                        <tr>
-                                        	<td style="text-align:center;"><?php echo $x; ?></td>
-                                        	<td style="text-align:center;"><?php echo $r['no_pelanggan']; ?></td>
-                                        	<td><?php echo $r['nama_pelanggan']; ?></td>
-                                        	<td><?php echo $r['alamat']; ?></td>
-                                        	<td style="text-align:center;"><?php echo $r['kelompok']; ?></td>
-                                            <td style="text-align:center;"><?php echo "<a href='table_edit.php?&edit&id=$ida'>"; ?><button type="button" style="margin-left :15px; color: white; background-color: blue;" class="btn btn-primary pe-7s-pen" data-toggle="modal" data-target="#myModal">
-
-                                            </button></a>
-                                            <button type="button" style="margin-left :15px; color: white; background-color: red;" class="btn btn-primary pe-7s-trash" data-toggle="modal" data-tarpget="#myModal">
-
-                                            </button>
-</td>
-                                        </tr>
-                                    <?php $x++; } ?>
-                                    </tbody>
-                                </table>
-
+                                <hr>
+                                <form action="prosessimpan.php" method="post">
+                                  <div class="row">
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label>Nomor Pelanggan</label>
+                                              <input type="text" class="form-control" placeholder="Nomor Pelanggan" name="no_pelanggan" value='<?php echo"$no_pelanggan"; ?>'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-1">
+                                          <div class="form-group">
+                                              <label>Titik GPS</label>
+                                              <input type="text" class="form-control" placeholder="Titik GPS" name="titik_gps" value='<?php echo"$titik_gps"; ?>'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Nama Pelanggan</label>
+                                              <input type="text" class="form-control" placeholder="Nama Pelanggan" name="nama_pelanggan" value='<?php echo"$nama_pelanggan"; ?>'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Longitude</label>
+                                              <input type="text" class="form-control" placeholder="Longitude" name="longitude" value='<?php echo"$longitude"; ?>'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Latitude</label>
+                                              <input type="text" class="form-control" placeholder="Latitude" name="latitude" value='<?php echo"$latitude"; ?>'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-1">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Kelompok</label>
+                                              <select class="form-control" name="kelompok">
+                                                <option value="MASJID" <?php if($kelompok == 'MASJID'): ?> selected="selected"<?php endif; ?>>MASJID</option>
+                                                <option value="SURAU" <?php if($kelompok == 'SURAU'): ?> selected="selected"<?php endif; ?>>SURAU</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label>Alamat</label>
+                                              <textarea rows="5" class="form-control" placeholder="Alamat Lengkat" name="alamat"><?php echo"$alamat"; ?></textarea>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <input type="file" name="gambar" accept="image/*">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <div class="form-group">
+                                        <button type="submit" class="btn btn-info btn-fill" style="width:100%;">Ubah Data</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ $login = $db->run($q);
 
 	if ($password === $login[0]['password']) {
 		setcookie("webgis", "$username");
-		header("Location: admin.php");
+		header("Location: admin/");
 	}
 	
 	else {
